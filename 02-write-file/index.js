@@ -1,7 +1,6 @@
 import fs from "fs";
 import readline from "readline";
 
-// const {stdin, stdout} = process;
 const fileName = "output.txt";
 const filePath = `./02-write-file/${fileName}`;
 
@@ -21,7 +20,12 @@ const appendData = data => {
 };
 
 rl.question("Greetings! Enter your message: ", (input) => {
-    appendData(input + "\n");
+    if (input === "exit") {
+        console.log("Goodbye!");
+        rl.close();
+    }else {
+        appendData(input + "\n");
+    }
 })
 
 rl.on("line", (input) => {
@@ -32,7 +36,6 @@ rl.on("line", (input) => {
         appendData(input + "\n");
     }
 })
-
 
 rl.on("SIGINT", () => {
     console.log("Goodbye!");
