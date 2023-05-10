@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __dirname = path.dirname(new URL(import.meta.url).pathname).replace(/\\/g, '/');
 const DIST = path.join(__dirname, "project-dist");
 const COMPONENTS = path.join(__dirname, "components");
 const ASSETS = path.join(__dirname, "assets");
