@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname).replace(/\\/g, '/');
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const secretFolderPath = path.join(__dirname, 'secret-folder');
 
 fs.readdir(secretFolderPath, {withFileTypes: true}, (err, files) => {

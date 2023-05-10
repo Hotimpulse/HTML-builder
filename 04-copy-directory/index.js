@@ -1,8 +1,8 @@
 import fs, { stat, write } from "fs";
 import path from "path";
+import { fileURLToPath } from 'url';
 
-
-const __dirname = path.dirname(new URL(import.meta.url).pathname).replace(/\\/g, '/');
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const filesPath = path.join(__dirname, "files");
 const newFolderPath = path.join(__dirname, "files-copy");
 

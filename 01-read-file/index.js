@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from 'url';
 
-// const __dirname = path.dirname(new URL(import.meta.url).pathname); // for macOS
-const __dirname = path.dirname(new URL(import.meta.url).pathname).replace(/\\/g, '/'); // for Windows
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const readStream = fs.createReadStream(path.join(__dirname, "text.txt"), "utf8");
 
